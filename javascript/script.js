@@ -4,7 +4,7 @@ function getComputerChoice(){
     return choice[randomIndex]; //returns the value of the index
 }
 
-console.log(getComputerChoice());
+// console.log(getComputerChoice());
 
 //Asking for the choice from player
 function getPlayerChoice(){
@@ -40,13 +40,14 @@ function playGame(){
 
     for(let r =1; r<=5; r++){
         let playerChoice = getPlayerChoice();
-        if (!validChoices.includes(playerChoice)) {
+        if (!validChoices.includes(playerChoice)) { //If the choice is invalid
             console.log("Invalid choice. Please enter 'rock', 'paper', or 'scissors'.");
             r--; 
             continue;
         }
         const computerChoice = getComputerChoice();
         console.log("Computer chose: ", computerChoice);
+        console.log("Your choice: ", playerChoice);
 
         const result = playRound(playerChoice, computerChoice);
         console.log(result);
@@ -56,7 +57,7 @@ function playGame(){
         }else if (result == "Computer wins!"){
             computerScore++;
         }
-
+    
         console.log(`Score - You: ${playerScore}, Computer: ${computerScore}`)
     }
 
